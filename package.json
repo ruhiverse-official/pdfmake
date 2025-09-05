@@ -1,7 +1,9 @@
 {
-  "name": "pdfmake",
-  "version": "0.2.8",
-  "description": "Client/server side PDF printing in pure JavaScript",
+
+  "name": "@pareshgami/pdfmake",
+  "version": "0.2.8-ruh1",
+    "types": "types/index.d.ts",
+  "description": "Paresh fork of pdfmake (private)",
   "main": "src/printer.js",
   "browser": "build/pdfmake.js",
   "directories": {
@@ -46,7 +48,7 @@
   "engines": {
     "node": ">=12"
   },
-  "scripts": {
+"scripts": {
     "test": "run-s build mocha",
     "build": "run-s build:3rdparty build:browser",
     "build:3rdparty": "shx cp node_modules/svg-to-pdfkit/source.js src/3rd-party/svg-to-pdfkit/source.js && shx cp node_modules/svg-to-pdfkit/LICENSE src/3rd-party/svg-to-pdfkit/LICENSE",
@@ -56,12 +58,12 @@
     "build:examples": "node build-examples.js",
     "lint": "eslint \"./src/**/*.js\" \"./tests/**/*.js\" \"./examples/**/*.js\"",
     "mocha": "mocha --reporter spec \"./tests/**/*.js\"",
-    "playground": "node dev-playground/server.js"
+    "playground": "node dev-playground/server.js",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/bpampuch/pdfmake.git"
-  },
+  "repository": { "type": "git", "url": "git+https://github.com/pareshgami/pdfmake.git" },
+  "homepage": "https://github.com/pareshgami/pdfmake#readme",
   "keywords": [
     "pdf",
     "javascript",
@@ -70,10 +72,7 @@
   ],
   "author": "Bartek Pampuch <bartosz.pampuch@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bpampuch/pdfmake/issues"
-  },
-  "homepage": "http://pdfmake.org",
+  "bugs": { "url": "https://github.com/pareshgami/pdfmake/issues" },
   "config": {
     "blanket": {
       "pattern": "src",
@@ -82,5 +81,7 @@
         "tests"
       ]
     }
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com" },
+  "files": ["build", "src", "types", "README.md", "LICENSE"]
 }
