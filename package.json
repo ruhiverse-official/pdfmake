@@ -2,7 +2,7 @@
 
   "name": "@pareshgami/pdfmake",
 
-  "version": "0.2.8",
+  "version": "0.2.9",
 
   "description": "Paresh fork of pdfmake (private)",
 
@@ -185,7 +185,6 @@
     "build",
 
     "src",
-
 
     "README.md",
 
