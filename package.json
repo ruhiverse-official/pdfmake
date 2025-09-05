@@ -4,8 +4,6 @@
 
   "version": "0.2.8",
 
-  "types": "types/index.d.ts",
-
   "description": "Paresh fork of pdfmake (private)",
 
   "main": "src/printer.js",
@@ -188,7 +186,6 @@
 
     "src",
 
-    "types",
 
     "README.md",
 
