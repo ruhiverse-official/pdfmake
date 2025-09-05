@@ -2,7 +2,7 @@
 
   "name": "@pareshgami/pdfmake",
 
-  "version": "0.2.11",
+  "version": "0.2.12",
 
   "description": "Paresh fork of pdfmake (private)",
 
@@ -177,6 +177,20 @@
     "registry": "https://npm.pkg.github.com"
 
   },
-  "files": ["build", "src", "types", "README.md", "LICENSE"]
+
+  "files": [
+
+    "build",
+
+    "src",
+
+    "types",
+
+    "README.md",
+
+    "LICENSE"
+
+  ]
+
 }
 
