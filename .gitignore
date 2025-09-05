@@ -9,5 +9,3 @@ doc
 nbproject
 yarn.lock
 .idea
-build/build/
-/build
