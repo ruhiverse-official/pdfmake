@@ -177,18 +177,6 @@
     "registry": "https://npm.pkg.github.com"
 
   },
-
-  "files": [
-
-    "build",
-
-    "src",
-
-    "README.md",
-
-    "LICENSE"
-
-  ]
-
+  "files": ["build", "src", "types", "README.md", "LICENSE"]
 }
 
