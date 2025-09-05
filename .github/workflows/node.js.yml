@@ -7,31 +7,51 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
-
-  publish:
-    # publish only on tags like v0.2.8-ruh5
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: read        # needed to install from GitHub Packages
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com
           scope: '@pareshgami'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm publish
+          cache: npm         # requires package-lock.json in the repo
+
+      - name: Install deps
+        run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: npm test
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')   # publish only on tags like v0.2.8-ruh5
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write       # needed to publish to GitHub Packages
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@pareshgami'
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build (optional; prepublishOnly will also build)
+        run: npm run build
+
+      - name: Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
