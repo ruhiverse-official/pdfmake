@@ -1,3 +1,13 @@
+# @ruhiverse/pdfmake
+
+> **Fork notice:** This is a public fork of [bpampuch/pdfmake](https://github.com/bpampuch/pdfmake) (MIT), maintained by [Ruhiverse](https://github.com/ruhiverse-official) for Milkwala / Ruhiverse apps.
+>
+> Changes vs upstream: custom VFS fonts for English / Hindi / Gujarati (regular + bold).
+>
+> Upstream project remains the source of truth for core pdfmake features — please report general pdfmake bugs upstream when possible.
+
+---
+
 # pdfmake [![Node.js CI][githubactions_img]][githubactions_url] [![GitHub][github_img]][github_url] [![npm][npm_img]][npm_url] [![Bower][bower_img]][bower_url] [![Packagist][packagist_img]][packagist_url] [![CDNJS][cdnjs_img]][cndjs_url]
 
 [githubactions_img]: https://github.com/bpampuch/pdfmake/workflows/Node.js%20CI/badge.svg?branch=0.1
